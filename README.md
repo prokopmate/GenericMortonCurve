@@ -7,7 +7,7 @@
 
 :Implementation of 3 types of methods to interleave and deinterleave morton curve (z_index) in a generic case defined by coordinate type, index type and variables count
 
--> magic_numbers methods - works using magic binary numbers (B,S arrays) precomputed for specific types also works for general case, well performing method especially insteresting for my future cpp implementation
+-> magic_numbers methods - works using magic binary numbers (B,S arrays) precomputed for specific types, works for general case, well performing method especially insteresting for my future cpp implementation
 
 -> string_manipulation methods - easy to understand but worse performing methods, works in general case
 
