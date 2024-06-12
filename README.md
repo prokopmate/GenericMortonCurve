@@ -1,12 +1,12 @@
 # GenericMortonCurve
- Methods to interleave and deinterleave morton curve in generic case
+ Methods to interleave and deinterleave morton curve (z_index) in a generic case, written in Python3
  
  -> Conversion can be tested in the main script with terminal testing functions or visualisation functions
 
 
 
 
-:Implementation of 3 types of methods to interleave and deinterleave morton curve (z_index) in a generic case defined by coordinate type, index type and variables count
+:Implementation of 3 types of methods to interleave and deinterleave morton curve in a generic case defined by coordinate type, index type and variables count
 
 -> magic_numbers methods - works using magic binary numbers (B,S arrays) precomputed for specific types, works for general case, well performing method especially insteresting for my future cpp implementation
 
