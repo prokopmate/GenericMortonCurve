@@ -77,14 +77,11 @@ def z_index_visualisation(var_function, vector_function, bounds,coord_np_type, i
     projection_str = '3d' if var_count == 3 else None
     fig = plt.figure()
     ax = fig.add_subplot(111, projection=projection_str)
-
-    ax.set_xlabel("Variable 1")
-    ax.set_ylabel("Variable 2")
-    ax.xaxis.set_major_locator(MaxNLocator(integer=True))
-    ax.yaxis.set_major_locator(MaxNLocator(integer=True))
-    if var_count == 3:
-        ax.zaxis.set_major_locator(MaxNLocator(integer=True))
-        ax.set_zlabel("Variable 3")
+    axis_labels = ["x","y","z"]
+    for i in range(var_count):
+        axis = getattr(ax,axis_labels[i]+"axis")
+        axis.set_major_locator(MaxNLocator(integer=True))
+        axis.set_label("Variable "+str(i))
 
     ax.scatter(*vars_variables.T, c=z_index_colors, label='Points with z'+r"$\in$"+"{"+r"${x},\dots,{y}$".format(x=str(bounds[0]), y=str(bounds[1]-1))+"}", s=z_index_points_size)
     ax.set_title(title)

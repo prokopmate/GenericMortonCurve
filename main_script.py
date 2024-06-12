@@ -5,7 +5,7 @@ from z_curve_computation.z_curve_magic import generate_magic_number_arrays, z_in
 from z_curve_computation.z_curve_array_manipulation import variables_array_manipulation, z_index_array_manipulation
 from terminal_testing import terminal_print_test
 
-#terminal_print_test()
+terminal_print_test()
 
 #distances_comparison()
 #curves_comparison_2d()
