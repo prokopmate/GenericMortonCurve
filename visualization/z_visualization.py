@@ -15,7 +15,7 @@ def curves_comparison_2d():
     grid_modulo = 16
     visualisation_args = {"z_index_colormap": 'jet', "labels_font_size": 10, "labels_modulo_val": 10, "z_index_points_size": 3, "legend_bbox_to_anchor": (-0.18, 1.08)}
 
-    curves_comparison_general(coordinate_np_type, index_np_type, var_count, grid_modulo, visualisation_args)
+    curves_comparison_general(coordinate_np_type, index_np_type, var_count, grid_modulo, visualisation_args.values())
 
 
 def curves_comparison_3d():
@@ -25,7 +25,7 @@ def curves_comparison_3d():
     grid_modulo = 4
     visualisation_args = {'z_index_colormap': 'jet', 'labels_font_size': 11, 'labels_modulo_val': 10, 'z_index_points_size': 12, 'legend_bbox_to_anchor': (-0.19, 1)}
 
-    curves_comparison_general(coordinate_np_type, index_np_type, var_count, grid_modulo, visualisation_args)
+    curves_comparison_general(coordinate_np_type, index_np_type, var_count, grid_modulo, visualisation_args.values())
 
 
 def distances_comparison():
@@ -54,9 +54,9 @@ def curves_comparison_general(coordinate_np_type, index_np_type, var_count, grid
 
     classic_var_func = functools.partial(classic_nd_variables, mod_val=grid_modulo, n_dim=var_count)
     z_index_visualisation(var_func, True, [0, grid_modulo ** var_count], coordinate_np_type, index_np_type,
-                          str(var_count)+"D z-order curve", *visualisation_args.values())
+                          str(var_count)+"D z-order curve", *visualisation_args)
     z_index_visualisation(classic_var_func, True, [0, grid_modulo ** var_count], coordinate_np_type, index_np_type,
-                          str(var_count)+"D standard curve", *visualisation_args.values())
+                          str(var_count)+"D standard curve", *visualisation_args)
     plt.show()
 
 

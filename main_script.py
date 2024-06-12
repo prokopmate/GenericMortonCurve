@@ -9,4 +9,4 @@ from terminal_testing import terminal_print_test
 
 #distances_comparison()
 #curves_comparison_2d()
-curves_comparison_3d()
+#curves_comparison_3d()
