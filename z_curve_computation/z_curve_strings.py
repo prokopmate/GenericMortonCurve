@@ -1,5 +1,5 @@
 import numpy as np
-from helping_methods import get_np_int_bit_string_width_arg,get_np_int_bit_string
+from utils.helping_methods import get_np_int_bit_string_width_arg,get_np_int_bit_string
 
 
 # methods using python string manipulation, works in a general case

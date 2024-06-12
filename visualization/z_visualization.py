@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 
 from z_curve_computation.z_curve_magic import variables_magic_numbers, generate_magic_number_arrays
-from helping_methods import classic_nd_variables
+from utils.helping_methods import classic_nd_variables
 # from z_curve_computation.z_curve_array_manipulation import variables_array_manipulation
 
 
