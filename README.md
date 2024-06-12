@@ -1,5 +1,5 @@
 # GenericMortonCurve
- Methods to interleave and deinterleave morton curve (z_index) in a generic case, written in Python
+ Methods to interleave and deinterleave Morton curve (z-order) in a generic case, written in Python
  
  -> Conversion can be tested in the main script with terminal testing functions or visualisation functions
 
