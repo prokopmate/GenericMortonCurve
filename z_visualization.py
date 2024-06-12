@@ -54,7 +54,7 @@ def curves_comparison_general(coordinate_np_type, index_np_type, var_count, grid
 
     classic_var_func = functools.partial(classic_nd_variables, mod_val=grid_modulo, n_dim=var_count)
     z_index_visualisation(var_func, True, [0, grid_modulo ** var_count], coordinate_np_type, index_np_type,
-                          str(var_count)+"D z-index curve", *visualisation_args.values())
+                          str(var_count)+"D z-order curve", *visualisation_args.values())
     z_index_visualisation(classic_var_func, True, [0, grid_modulo ** var_count], coordinate_np_type, index_np_type,
                           str(var_count)+"D standard curve", *visualisation_args.values())
     plt.show()
