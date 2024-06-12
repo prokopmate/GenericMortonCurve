@@ -1,5 +1,6 @@
 # GenericMortonCurve
  Methods to interleave and deinterleave morton curve in generic case
+ 
  -> Conversion can be tested in the main script with terminal testing functions or visualisation functions
 
 
