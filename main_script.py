@@ -1,8 +1,5 @@
 import numpy as np
 from visualization.z_visualization import distances_comparison, curves_comparison_2d, curves_comparison_3d
-from z_curve_computation.z_curve_strings import z_index_string_manipulation, variables_string_manipulation
-from z_curve_computation.z_curve_magic import generate_magic_number_arrays, z_index_magic_numbers, variables_magic_numbers
-from z_curve_computation.z_curve_array_manipulation import variables_array_manipulation, z_index_array_manipulation
 from terminal_testing import terminal_print_test
 
 terminal_print_test()

@@ -4,23 +4,23 @@ import numpy as np
 
 # methods using byte magic numbers, works in a general case
 def z_index_magic_numbers(variables, index_type, var_count, B, S):
-    z_s = np.zeros(len(variables), dtype=index_type)
-    v_s = variables.T.astype(index_type)
-    for q in range(len(B)-1, -1, -1):
+    v_s = variables.astype(index_type).T
+    z_s = np.zeros_like(v_s[0], dtype=index_type)
+    for q in range(len(B) - 1, -1, -1):
         v_s = (v_s | (v_s << S[q])) & B[q]
     for i in range(len(v_s)):
-        vs_shifted = v_s[var_count-i-1] << index_type(i)
+        vs_shifted = v_s[var_count - i - 1] << index_type(i)
         z_s = z_s | vs_shifted
-    return np.array(z_s)
+    return z_s
 
 
 def variables_magic_numbers(z_indexes_vars, coord_type, index_type, var_count, B, S):
-    z_extended = z_indexes_vars[:, np.newaxis]
-    z_extended = (z_extended >> np.arange(var_count - 1, -1, -1, dtype=index_type)) & B[0]
-    for q in range(len(B)-1):
+    z_index_extended = index_type(z_indexes_vars)[..., np.newaxis]
+    z_extended = (z_index_extended >> np.arange(var_count - 1, -1, -1, dtype=index_type)) & B[0]
+    for q in range(len(B) - 1):
         z_extended |= z_extended >> S[q]
-        z_extended &= B[q+1]
-    return z_extended.astype(coord_type)
+        z_extended &= B[q + 1]
+    return coord_type(z_extended)
 
 
 def generate_magic_number_arrays(coordinate_np_type, index_np_type, var_count):

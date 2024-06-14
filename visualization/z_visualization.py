@@ -94,6 +94,7 @@ def z_index_visualisation(var_function, vector_function, bounds,coord_np_type, i
     for i in range(data_length-1):
         plt.plot(*vars_variables[i:i+2].T, c=z_index_colors[i])
 
+
 def distances_visualisation(var_function, vector_function, bounds, index_func, var_count, grid_width, title):
     counting_type = np.int64
     if vector_function:
