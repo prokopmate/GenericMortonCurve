@@ -4,7 +4,7 @@ import numpy as np
 
 # methods using byte magic numbers, works in a general case
 def z_index_magic_numbers(variables, index_type, var_count, B, S):
-    v_s = variables.astype(index_type).T
+    v_s = index_type(variables).T
     z_s = np.zeros_like(v_s[0], dtype=index_type)
     for q in range(len(B) - 1, -1, -1):
         v_s = (v_s | (v_s << S[q])) & B[q]
