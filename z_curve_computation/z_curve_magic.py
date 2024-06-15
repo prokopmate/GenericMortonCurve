@@ -30,9 +30,9 @@ def generate_magic_number_arrays(coordinate_np_type, index_np_type, var_count):
     powers_of_two = 2**(np.arange(arrays_length, dtype=index_np_type))
     bits_chunks = 2**powers_of_two-1
     calculation_shifts = var_count*powers_of_two
-    S = (var_count-1)*powers_of_two
+    S = calculation_shifts-powers_of_two
     B = np.zeros(arrays_length, dtype=index_np_type)
     for i in range(arrays_length):
-        for q in range(filled_len//calculation_shifts[i]):
-            B[i] |= bits_chunks[i] << index_np_type(q*calculation_shifts[i])
+        for q in np.arange(filled_len//calculation_shifts[i],dtype=index_np_type):
+            B[i] |= bits_chunks[i] << q*calculation_shifts[i]
     return B, S
