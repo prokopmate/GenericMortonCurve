@@ -98,7 +98,7 @@ def z_index_visualisation(var_function, vector_function, bounds,coord_np_type, i
 def distances_visualisation(var_function, vector_function, bounds, index_func, var_count, grid_width, title):
     counting_type = np.int64
     if vector_function:
-        vars_variables = np.array(var_function(np.array(range(bounds[0], bounds[1]), dtype=index_func)), dtype=counting_type)
+        vars_variables = np.array(var_function(np.arange(bounds[0], bounds[1], dtype=index_func)), dtype=counting_type)
     else:
         vars_variables = np.array([var_function(index_func(z)) for z in range(bounds[0], bounds[1])], dtype=counting_type)
 

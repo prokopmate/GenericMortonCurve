@@ -24,6 +24,8 @@ def terminal_print_test():
 
     print(z_indexes_arg, "z_indexes argument")
     variables_decoded = variables_magic_numbers(z_indexes_arg, coordinate_np_type, index_np_type, var_count, B, S)
+    #variables_decoded_scalar = variables_magic_numbers(val1, coordinate_np_type, index_np_type, var_count, B, S)
+
     print(variables_decoded, "initially decoded variables")
 
     z_array_manipulation = z_index_array_manipulation(variables_decoded, coordinate_np_type, index_np_type, var_count)
