@@ -27,7 +27,7 @@ def generate_magic_number_arrays(coordinate_np_type, index_np_type, var_count):
     coordinate_bits_count = np.iinfo(coordinate_np_type).bits
     filled_len = index_np_type(var_count*coordinate_bits_count)
     arrays_length = math.floor(math.log2(filled_len/var_count))
-    powers_of_two = np.array([2**i for i in range(arrays_length)], dtype=index_np_type)
+    powers_of_two = 2**(np.arange(arrays_length, dtype=index_np_type))
     bits_chunks = 2**powers_of_two-1
     calculation_shifts = var_count*powers_of_two
     S = (var_count-1)*powers_of_two
