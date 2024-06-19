@@ -2,10 +2,8 @@ import numpy as np
 import functools
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
-
 from z_curve_computation.z_curve_magic import variables_magic_numbers, generate_magic_number_arrays
 from utils.helping_methods import classic_nd_variables
-# from z_curve_computation.z_curve_array_manipulation import variables_array_manipulation
 
 
 def curves_comparison_2d():
@@ -33,8 +31,6 @@ def distances_comparison():
     index_np_type = np.uint64
     var_count = 8
     modulo_grid = 6
-    # var_func = functools.partial(variables_array_manipulation, coord_type=coordinate_np_type, index_type=index_np_type,
-    #                             var_count=var_count)
     B, S = generate_magic_number_arrays(coordinate_np_type, index_np_type, var_count)
 
     var_func = functools.partial(variables_magic_numbers, coord_type=coordinate_np_type, index_type=index_np_type,
@@ -49,8 +45,6 @@ def curves_comparison_general(coordinate_np_type, index_np_type, var_count, grid
     B, S = generate_magic_number_arrays(coordinate_np_type, index_np_type, var_count)
     var_func = functools.partial(variables_magic_numbers, coord_type=coordinate_np_type, index_type=index_np_type,
                                  var_count=var_count, B=B, S=S)
-    # var_func = functools.partial(variables_array_manipulation, coord_type=coordinate_np_type,
-    #                             index_type=index_np_type, var_count=var_count)
 
     classic_var_func = functools.partial(classic_nd_variables, mod_val=grid_modulo, n_dim=var_count)
     z_index_visualisation(var_func, True, [0, grid_modulo ** var_count], coordinate_np_type, index_np_type,
@@ -81,11 +75,9 @@ def z_index_visualisation(var_function, vector_function, bounds,coord_np_type, i
     for i in range(var_count):
         axis = getattr(ax,axis_labels[i]+"axis")
         axis.set_major_locator(MaxNLocator(integer=True))
-        axis.set_label("Variable "+str(i))
-
+        axis.label.set_text("Variable "+str(i+1))
     ax.scatter(*vars_variables.T, c=z_index_colors, label='Points with z'+r"$\in$"+"{"+r"${x},\dots,{y}$".format(x=str(bounds[0]), y=str(bounds[1]-1))+"}", s=z_index_points_size)
     ax.set_title(title)
-
     # visualizes text labels only for indexes which are divisible by modulo_val
     data_strings = [(i*labels_modulo_val, str(i*labels_modulo_val)) for i in range(data_length//labels_modulo_val+1)]
     for index, txt in data_strings:
